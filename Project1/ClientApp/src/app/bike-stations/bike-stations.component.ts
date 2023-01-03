@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { BikeStationService } from '../../services/bike-station.service';
 
 @Component({
   selector: 'app-fetch-data',
@@ -8,10 +8,17 @@ import { HttpClient } from '@angular/common/http';
 export class BikeStationsComponent {
   public bikeStations: BikeStation[] = [];
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<BikeStation[]>('https://localhost:44412/bikestation/GetAllBikeStations').subscribe(result => {
-      this.bikeStations = result;
-    }, error => console.error(error));
+  constructor(private bikeStationService: BikeStationService) {
+   
+  }
+
+  ngOnInit() {
+    this.bikeStationService.getAllBikeStations().
+      subscribe(data => {
+        this.bikeStations = data;
+
+      });
+
   }
 }
 

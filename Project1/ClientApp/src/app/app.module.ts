@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { BikeStationsComponent } from './bike-stations/bike-stations.component';
 
 import { TableModule } from 'primeng/table';
+import { BikeStationService } from '../services/bike-station.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { TableModule } from 'primeng/table';
     ]),
     TableModule
   ],
-  providers: [],
+  providers: [BikeStationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
