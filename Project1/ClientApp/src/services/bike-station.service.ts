@@ -1,7 +1,10 @@
-import { Component, Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
+import { environment } from '../environments/environment';
+import { BikeStation } from '../models/bike-station.model';
+
 
 @Injectable()
 export class BikeStationService {
@@ -9,7 +12,7 @@ export class BikeStationService {
   private apiURL: string;
 
   constructor(private http: HttpClient) {
-    this.apiURL = 'https://localhost:44412/';
+    this.apiURL = environment.baseUrl;
   }
 
   getAllBikeStations(): Observable<BikeStation[]>  {
@@ -18,9 +21,3 @@ export class BikeStationService {
   }
 }
 
-interface BikeStation {
-  name: string;
-  address: number;
-  kaupunki: number;
-  operaattor: string;
-}
