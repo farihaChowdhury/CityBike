@@ -1,0 +1,45 @@
+<h1 id="tableLabel">Bike Stations</h1>
+
+<p *ngIf="!bikeStations"><em>Loading...</em></p>
+
+<!--<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bikeStations">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Operator</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let station of bikeStations">
+      <td>{{ station.name }}</td>
+      <td>{{ station.address }}</td>
+      <td>{{ station.kaupunki }}</td>
+      <td>{{ station.operaattor }}</td>
+    </tr>
+  </tbody>
+</table>-->
+
+<p-table [value]="bikeStations" [tableStyle]="{'min-width': '60rem'}"  [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing 1 to 10 of 100 entries" [rowsPerPageOptions]="[10,25,50]">
+        >
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="name" style="width:20%">Name <p-sortIcon field="name"></p-sortIcon></th>
+      <th pSortableColumn="address" style="width:20%">Address <p-sortIcon field="address"></p-sortIcon></th>
+      <th pSortableColumn="kaupunki" style="width:20%">City <p-sortIcon field="kaupunki"></p-sortIcon></th>
+      <th pSortableColumn="operaattor" style="width:20%">Operator <p-sortIcon field="operaattor"></p-sortIcon></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-station>
+    <tr>
+      <td>{{ station.name }}</td>
+      <td>{{ station.address }}</td>
+      <td>{{ station.kaupunki }}</td>
+      <td>{{ station.operaattor }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
