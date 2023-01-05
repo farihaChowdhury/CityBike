@@ -1,4 +1,5 @@
 ﻿using CityBike.Data;
+using CityBike.Services;
 using System.Web.Http;
 
 namespace Project1.Controllers
@@ -7,20 +8,20 @@ namespace Project1.Controllers
     public class BikeStationController : ApiController
     {
         private readonly ILogger<BikeStationController> _logger;
-        private readonly CityBikeContext _context;
+        private readonly IBikeStationService _bikeStationService ;
 
 
-        public BikeStationController(ILogger<BikeStationController> logger, CityBikeContext context)
+        public BikeStationController(ILogger<BikeStationController> logger, IBikeStationService bikeStationService)
         {
             _logger = logger;
-            _context = context;
+            _bikeStationService = bikeStationService;
         }
 
         [HttpGet]
         [Route("GetAllBikeStations")]
         public List<BikeStation> GetAllBikeStations()
         {
-            return _context.BikeStations.OrderBy(e=> e.Name).ToList();
+            return _bikeStationService.GetAllBikeStations();
         }
     }
 }

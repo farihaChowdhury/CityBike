@@ -1,4 +1,5 @@
 using CityBike.Data;
+using CityBike.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CityBikeContext>(x => x.UseSqlServer
     (builder.Configuration.GetConnectionString("CityBikeDbString")));
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IBikeStationService, BikeStationService>();
 
 var app = builder.Build();
 
