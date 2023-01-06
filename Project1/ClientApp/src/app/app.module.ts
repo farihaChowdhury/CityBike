@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { BikeStationsComponent } from './bike-stations/bike-stations.component';
 
 import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
 import { BikeStationService } from '../services/bike-station.service';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { BikeStationService } from '../services/bike-station.service';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'bike-stations', component: BikeStationsComponent },
     ]),
-    TableModule
+    TableModule,
+    InputTextModule
   ],
   providers: [BikeStationService],
   bootstrap: [AppComponent]

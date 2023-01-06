@@ -21,8 +21,17 @@
   </tbody>
 </table>-->
 
-<p-table [value]="bikeStations" [tableStyle]="{'min-width': '60rem'}"  [paginator]="true" [rows]="10"
-         [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"  [loading]="isLoading">
+<p-table #dt dataKey="id" [value]="bikeStations" [tableStyle]="{'min-width': '60rem'}" [paginator]="true" [rows]="10"
+         [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="isLoading"
+         [globalFilterFields]="['name','address','kaupunki','operaattor']">
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <span class="p-input-icon-left ml-auto">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')" placeholder="Search keyword" />
+      </span>
+    </div>
+  </ng-template>
   <ng-template pTemplate="header">
     <tr>
       <th pSortableColumn="name" style="width:20%">Name <p-sortIcon field="name"></p-sortIcon></th>
