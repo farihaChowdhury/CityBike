@@ -5,9 +5,9 @@ namespace CityBike.Data;
 
 public partial class BikeStation
 {
-    public string? Fid { get; set; }
+    public int Fid { get; set; }
 
-    public string? Id { get; set; }
+    public int Id { get; set; }
 
     public string? Nimi { get; set; }
 
@@ -27,7 +27,7 @@ public partial class BikeStation
 
     public string? Kapasiteet { get; set; }
 
-    public string? X { get; set; }
+    public double? X { get; set; }
 
-    public string? Y { get; set; }
+    public double? Y { get; set; }
 }
