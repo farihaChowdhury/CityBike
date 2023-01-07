@@ -13,7 +13,10 @@ import { JourneyComponent } from './journey/journey.component';
 
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
+
 import { BikeStationService } from '../services/bike-station.service';
+import { JourneyService } from '../services/journey.service';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { BikeStationService } from '../services/bike-station.service';
     TableModule,
     InputTextModule
   ],
-  providers: [BikeStationService],
+  providers: [
+    BikeStationService,
+    JourneyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
