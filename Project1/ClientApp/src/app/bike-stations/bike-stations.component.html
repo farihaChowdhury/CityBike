@@ -2,25 +2,6 @@
 
 <p *ngIf="!bikeStations"><em>Loading...</em></p>
 
-<!--<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="bikeStations">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Operator</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let station of bikeStations">
-      <td>{{ station.name }}</td>
-      <td>{{ station.address }}</td>
-      <td>{{ station.kaupunki }}</td>
-      <td>{{ station.operaattor }}</td>
-    </tr>
-  </tbody>
-</table>-->
-
 <p-table #dt dataKey="id" [value]="bikeStations" [tableStyle]="{'min-width': '60rem'}" [paginator]="true" [rows]="10"
          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="isLoading"
          [globalFilterFields]="['name','address','kaupunki','operaattor']">

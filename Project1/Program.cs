@@ -12,6 +12,8 @@ builder.Services.AddDbContext<CityBikeContext>(x => x.UseSqlServer
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IBikeStationService, BikeStationService>();
+builder.Services.AddScoped<IJourneyService, JourneyService>();
+
 
 var app = builder.Build();
 
