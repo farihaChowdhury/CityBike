@@ -35,7 +35,9 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\journey\journey.component.ts" />
     <None Remove="ClientApp\src\models\bike-station.model.ts" />
+    <None Remove="ClientApp\src\models\journey.model.ts" />
     <None Remove="ClientApp\src\services\bike-station.service.ts" />
+    <None Remove="ClientApp\src\services\journey.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,7 +48,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\journey\journey.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\models\bike-station.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\models\journey.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\services\bike-station.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\services\journey.service.ts" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

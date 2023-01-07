@@ -7,6 +7,7 @@ const PROXY_CONFIG = [
   {
     context: [
       "/bikestation",
+      "/journey"
    ],
     target: target,
     secure: false,
