@@ -16,7 +16,7 @@ namespace CityBike.Services
         }
         public List<Journey> GetAllJourneys()
         {
-            return _unitOfWork.JourneyRepository.Get().OrderBy(e => e.DepartureDate).ToList();
+            return _unitOfWork.JourneyRepository.Get().ToList();
         }
     }
 }

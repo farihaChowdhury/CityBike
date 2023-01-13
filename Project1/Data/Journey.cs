@@ -19,5 +19,5 @@ public partial class Journey
 
     public double? CoveredDistance { get; set; }
 
-    public double? Duration { get; set; }
+    public int? Duration { get; set; }
 }
