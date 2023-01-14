@@ -1,9 +1,9 @@
 <h1>Journeys</h1>
 <p *ngIf="!journeys"><em>Loading...</em></p>
 
-<p-table #dt dataKey="id" [value]="journeys" [tableStyle]="{'min-width': '60rem'}" [paginator]="true" [rows]="10"
+<p-table #dt dataKey="id" [value]="journeys" [tableStyle]="{'min-width': '60rem'}" [paginator]="true" [rows]="20"
          [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="isLoading" [totalRecords]="totalRecords"
-         [globalFilterFields]="['departureStationName','returnStationName']">
+         [globalFilterFields]="['departureStationName','returnStationName']" [scrollable]="true" scrollHeight="500px">
   <!--[lazy]="true" (onLazyLoad)="loadJourneys($event)"-->
   <ng-template pTemplate="caption">
     <div class="flex">
@@ -15,7 +15,7 @@
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="departureStationName" style="width:20%">Departure Station Name <p-sortIcon field="departureStationName"></p-sortIcon></th>
+      <th pSortableColumn="departureStationName" style="width:40%">Departure Station Name <p-sortIcon field="departureStationName"></p-sortIcon></th>
       <th pSortableColumn="returnStationName" style="width:20%">Return Station Name <p-sortIcon field="returnStationName"></p-sortIcon></th>
       <th pSortableColumn="coveredDistance" style="width:20%">Covered Distance <p-sortIcon field="coveredDistance"></p-sortIcon></th>
       <th pSortableColumn="duration" style="width:20%">Duration <p-sortIcon field="duration"></p-sortIcon></th>
