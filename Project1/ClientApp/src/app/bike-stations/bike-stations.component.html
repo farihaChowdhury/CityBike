@@ -2,8 +2,8 @@
 
 <p *ngIf="!bikeStations"><em>Loading...</em></p>
 
-<p-table #dt dataKey="id" [value]="bikeStations" [tableStyle]="{'min-width': '60rem'}" [paginator]="true" [rows]="10"
-         [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="isLoading"
+<p-table #dt dataKey="id" [value]="bikeStations"  [paginator]="true" [rows]="20"
+         [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="isLoading" [scrollable]="true" scrollHeight="400px"
          [globalFilterFields]="['name','address','kaupunki','operaattor']">
   <ng-template pTemplate="caption">
     <div class="flex">
@@ -15,7 +15,7 @@
   </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="name" style="width:20%">Name <p-sortIcon field="name"></p-sortIcon></th>
+      <th pSortableColumn="name" style="width:40%">Name <p-sortIcon field="name"></p-sortIcon></th>
       <th pSortableColumn="address" style="width:20%">Address <p-sortIcon field="address"></p-sortIcon></th>
       <th pSortableColumn="kaupunki" style="width:20%">City <p-sortIcon field="kaupunki"></p-sortIcon></th>
       <th pSortableColumn="operaattor" style="width:20%">Operator <p-sortIcon field="operaattor"></p-sortIcon></th>
@@ -23,12 +23,15 @@
   </ng-template>
   <ng-template pTemplate="body" let-station>
     <tr>
-      <td>{{ station.name }}</td>
+      <td><a [routerLink]="" (click)="getStationDetails(station)">{{ station.name }}</a></td>
       <td>{{ station.address }}</td>
       <td>{{ station.kaupunki }}</td>
       <td>{{ station.operaattor }}</td>
     </tr>
   </ng-template>
 </p-table>
+
+<app-bike-station-detail></app-bike-station-detail>
+
 
 

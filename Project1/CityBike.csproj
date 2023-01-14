@@ -33,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\bike-stations-detail\bike-stations-detail.component.ts" />
     <None Remove="ClientApp\src\app\journey\journey.component.ts" />
     <None Remove="ClientApp\src\models\bike-station.model.ts" />
     <None Remove="ClientApp\src\models\journey.model.ts" />
@@ -46,6 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\bike-stations-detail\bike-stations-detail.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\journey\journey.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\models\bike-station.model.ts" />
     <TypeScriptCompile Include="ClientApp\src\models\journey.model.ts" />

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { BikeStationService } from '../../services/bike-station.service';
 import { BikeStation } from '../../models/bike-station.model';
 import { Table } from 'primeng/table';
+import { BikeStationsDetailComponent } from '../bike-stations-detail/bike-stations-detail.component';
 
 
 @Component({
@@ -12,8 +13,8 @@ export class BikeStationsComponent {
   public bikeStations: BikeStation[] = [];
   public isLoading: boolean = false;
 
-  @ViewChild('dt')
-    dt!: Table;
+  @ViewChild('dt') dt!: Table;
+  @ViewChild(BikeStationsDetailComponent) bikeStationsDetailComponent!: BikeStationsDetailComponent
 
   constructor(private bikeStationService: BikeStationService) {
 
@@ -30,6 +31,12 @@ export class BikeStationsComponent {
           this.isLoading = false;
           console.log(error)
         });
+  }
+
+  getStationDetails(station: BikeStation) {
+    console.log("HEUUUUUU");
+    this.bikeStationsDetailComponent.openDetailDialogBox(station);
+
   }
 
   applyFilterGlobal($event: any, stringVal: string) {
