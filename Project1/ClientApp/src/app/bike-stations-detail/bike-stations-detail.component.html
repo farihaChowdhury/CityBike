@@ -1,0 +1,12 @@
+<p-dialog *ngIf="isOpenDetailDialogBox" [(visible)]="isOpenDetailDialogBox" [modal]="true">
+  <ng-template pTemplate="header">
+    Details
+  </ng-template>
+  <div>
+    <p><strong>Name: </strong>{{bikeStation.name}}</p>
+    <p><strong>Address: </strong>{{bikeStation.address}}</p>
+  </div>
+  <ng-template pTemplate="footer">
+    <button pButton >Ok</button>
+  </ng-template>
+</p-dialog>
