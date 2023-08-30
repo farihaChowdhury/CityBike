@@ -34,7 +34,6 @@ export class BikeStationsComponent {
   }
 
   getStationDetails(station: BikeStation) {
-    console.log("HEUUUUUU");
     this.bikeStationsDetailComponent.openDetailDialogBox(station);
 
   }
