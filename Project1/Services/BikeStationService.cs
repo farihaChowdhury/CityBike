@@ -1,14 +1,16 @@
-﻿using CityBike.Data;
-using Microsoft.EntityFrameworkCore;
-
-namespace CityBike.Services
+﻿namespace CityBike.Services
 {
+    using CityBike.Data;
+    using CityBike.ViewModels;
+
     public interface IBikeStationService
     {
         List<BikeStation> GetAllBikeStations();
+
+        BikeStationViewModel GetBikeStationDetailsById(int bikeStationId);
     }
 
-    public class BikeStationService: IBikeStationService
+    public class BikeStationService : IBikeStationService
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -19,7 +21,12 @@ namespace CityBike.Services
 
         public List<BikeStation> GetAllBikeStations()
         {
-            return _unitOfWork.BikeStationRepository.Get().OrderBy(e => e.Name).ToList();
+            return _unitOfWork.BikeStations.Get().OrderBy(e => e.Name).ToList();
+        }
+
+        public BikeStationViewModel GetBikeStationDetailsById(int bikeStationId)
+        {
+            return _unitOfWork.BikeStations.GetBikeStationDetailsById(bikeStationId);
         }
     }
 }
